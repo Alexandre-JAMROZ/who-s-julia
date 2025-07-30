@@ -1,0 +1,16 @@
+{
+  "name": "who-s-julia",
+  "version": "1.0.0",
+  "description": "Dépôt du projet tutoré en licence d'informatique par Alexandre JAMROZ et Lucas JAMET",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server ./src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
