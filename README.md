@@ -1,5 +1,5 @@
 # who-s-julia
-Dépôt du projet tutoré en licence d'informatique
+Dépôt du projet tutoré en licence d'informatique par Alexandre JAMROZ et Lucas JAMET
 
 Le projet a pour objectif de déveloper un site internet ET d'apprendre un langage de programmation. 
 
