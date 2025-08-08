@@ -1,9 +1,25 @@
 <?php
 
-// Récupérer les erreurs et les valeurs du formulaire 
-$error = $_GET['error'] ?? '';
-$pseudo = $_GET['pseudo'] ?? '';
-$email = $_GET['email'] ?? '';
+require_once __DIR__ . '/../config/register.php';
+
+$error = '';
+$pseudo = '';
+$email = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $pseudo = trim($_POST['pseudo'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $confirm_password = $_POST['confirm_password'] ?? '';
+
+    if (register($pseudo, $email, $password, $confirm_password, $error)) {
+        // Succès : Rediriger vers l'accueil
+        header('Location: index.html?success=1');
+        exit;
+    } else {
+        // Erreur : On reste sur la page
+    }
+}
 
 ?>
 
@@ -18,10 +34,10 @@ $email = $_GET['email'] ?? '';
     <h1>Créer un compte</h1>
 
     <?php if ($error): ?>
-        <p><?php echo htmlspecialchars($error); ?></p>
+        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
 
-    <form action="/config/register.php" method="post" class="compte_form">
+    <form action="compte.php" method="post" class="compte_form">
         <div class="compte_form">
             <label for="pseudo">Entrez votre pseudo :</label>
             <input type="text" name="pseudo" id="pseudo" required value="<?php echo htmlspecialchars($pseudo); ?>">
