@@ -18,13 +18,14 @@ Pour que le site fonctionne et que la base de données soit initialisée, il fau
     - Par exemple : ```"C:\xampp\htdocs\who-s-julia"```
     - Cela permet de transiter des données entre le site et la base de données.
 - Dans le fichier ```"C:\xampp\apache\httpd.conf"``` :
-    - A la fin du fichier, ajouter les lignes : 
+    - A la ligne 252 et 253, remplacer : 
     ```  
-    DocumentRoot "C:/xampp/htdocs/who-s-julia/src"  
-    <Directory "C:/xampp/htdocs/who-s-julia/src">
-	    Options Indexes FollowSymLinks Includes ExecCGI
-	    AllowOverride All
-	    Require all granted
-    </Directory>
+    DocumentRoot "C:/xampp/htdocs"  
+    <Directory "C:/xampp/htdocs">
     ```
-    - Cela permet de diriger la racine du site vers ```/src```.
+    - par :
+    ```
+    DocumentRoot "C:/xampp/htdocs/who-s-julia/public"
+    <Directory "C:/xampp/htdocs/who-s-julia/public">
+    ```
+    - Cela permet de diriger la racine du site vers ```/public```.
