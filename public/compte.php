@@ -29,38 +29,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Compte</title>
+    <link rel="stylesheet" href="static/css/styles-compte.css">
 </head>
 <body>
-    <h1>Créer un compte</h1>
-
-    <?php if ($error): ?>
-        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php endif; ?>
-
-    <form action="compte.php" method="post" class="compte_form">
-        <div class="compte_form">
-            <label for="pseudo">Entrez votre pseudo :</label>
-            <input type="text" name="pseudo" id="pseudo" required value="<?php echo htmlspecialchars($pseudo); ?>">
+    <header>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="documentation/documentation.html">Documentation</a></li>
+                <li><a href="modules/modules.html">Modules</a></li>
+                <li><a href="#">Créer un compte</a></li>
+                </ul>
+            </nav>
+            <div class="profile">
+                <img src="https://via.placeholder.com/40" alt="Photo de profil">
+            </div>
         </div>
+    </header>
 
-        <div class="compte_form">
-            <label for="email">Entrez votre email :</label>
-            <input type="email" name="email" id="email" required value="<?php echo htmlspecialchars($email); ?>">
-        </div>
+    <main>
+        <div class="main">
+            <h1>Créer un compte</h1>
 
-        <div class="compte_form">
-            <label for="password">Entrez votre mot de passe :</label>
-            <input type="password" name="password" id="password" required>
-        </div>
+            <?php if ($error): ?>
+                <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
 
-        <div class="compte_form">
-            <label for="confirm_password">Confirmez votre mot de passe :</label>
-            <input type="password" name="confirm_password" id="confirm_password" required>
-        </div>
+            <form action="compte.php" method="post" class="compte-form">
+                <div class="compte-form">
+                    <label for="pseudo">Votre pseudo</label>
+                    <input type="text" name="pseudo" id="pseudo" required value="<?php echo htmlspecialchars($pseudo); ?>">
+                </div>
 
-        <div class="compte_form">
-            <button type="submit">Créer votre compte</button>
+                <div class="compte-form">
+                    <label for="email">Votre E-mail</label>
+                    <input type="email" name="email" id="email" required value="<?php echo htmlspecialchars($email); ?>">
+                </div>
+
+                <div class="compte-form">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+
+                <div class="compte-form">
+                    <label for="confirm_password">Entrez le mot de passe à nouveau</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required>
+                </div>
+
+                <div class="compte-form">
+                    <button type="submit">Créer votre compte</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </main>
+
+    <footer>
+        <p><strong>Contacts&nbsp;:</strong> alexandrejamrozpro@gmail.com | lucas.jamet03@gmail.com </p>
+        <p><strong>Université&nbsp;:</strong> Université de la Nouvelle-Calédonie</p>
+        <p>Projet Tutoré - Alexandre JAMROZ & Lucas JAMET</p>
+    </footer>
 </body>
 </html>
