@@ -67,23 +67,23 @@ main {
   margin: 2rem auto;
   padding: 0 1rem;
 }
-.hero {
+.main {
   background-color: #fff;
   border-radius: var(--radius);
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   margin-bottom: 2rem;
 }
-.hero h1 {
+.main h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
-.hero p {
+.main p {
   margin-bottom: 1rem;
   color: var(--muted-color);
 }
-.modules {
+.minor {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -93,12 +93,12 @@ main {
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   margin-bottom: 2rem;
 }
-.modules h2 {
+.minor h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
-.modules p {
+.minor p {
   margin-bottom: 1rem;
   color: var(--muted-color);
 }
