@@ -1,24 +1,52 @@
-/* Feuille de style pour Apprendre Julia */
+/* ---------- Feuille de style pour Apprendre Julia ---------- */
 :root {
-  --primary-color: #3C79F5;
-  --secondary-color: #F5F7FA;
-  --text-color: #333;
-  --muted-color: #666;
-  --accent-color: #FF5449;
-  --radius: 12px;
-  --transition: 0.3s;
+    /*--primary-color: #3C79F5;*/
+    --secondary-color: #F5F7FA;
+    --text-color: #333;
+    --muted-color: #666;
+    /*--accent-color: #FF5449;*/
+    --radius: 12px;
+    --transition: 0.3s;
+
+    /* Violets */
+    --julia-purple-light: #B984CB;
+    --julia-purple: #9558B2;
+    --julia-purple-dark: #6C3F83;
+
+    /* Verts */
+    --julia-green-light: #56C547;
+    --julia-green: #389826;
+    --julia-green-dark: #246113;
+
+    /* Rouges */
+    --julia-red-light: #E56D64;
+    --julia-red: #CB3C33;
+    --julia-red-dark: #892922;
+
+    /*
+    julia-purple : Titres
+    julia-green : Liens, boutons d'actions
+    julia-red : Avertissements, points importants
+
+    light : fond par défaut, arrière-plan
+    normal : principale, titre, clic
+    dark : hover, focus, éléments intéractifs
+    */
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--secondary-color);
   color: var(--text-color);
   line-height: 1.6;
 }
+
 header {
   background-color: #fff;
   padding: 1rem 2rem;
@@ -27,25 +55,30 @@ header {
   top: 0;
   z-index: 100;
 }
+
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 nav ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
+
 nav a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
   transition: color var(--transition);
 }
+
 nav a:hover {
-  color: var(--primary-color);
+  color: var(--julia-purple-dark);
 }
+
 .profile {
   width: 40px;
   height: 40px;
@@ -54,19 +87,23 @@ nav a:hover {
   cursor: pointer;
   transition: transform var(--transition);
 }
+
 .profile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .profile:hover {
   transform: scale(1.05);
 }
+
 main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
+
 .main {
   background-color: #fff;
   border-radius: var(--radius);
@@ -74,15 +111,27 @@ main {
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   margin-bottom: 2rem;
 }
+
 .main h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--primary-color);
+  color: var(--julia-purple);
 }
+
+.main h2 {
+    color: var(--julia-purple);
+}
+
 .main p {
   margin-bottom: 1rem;
   color: var(--muted-color);
 }
+
+.main ul li {
+    margin-left: 1rem;
+    color: var(--muted-color);
+}
+
 .minor {
   display: flex;
   flex-direction: column;
@@ -93,34 +142,53 @@ main {
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   margin-bottom: 2rem;
 }
+
 .minor h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--primary-color);
+  color: var(--julia-purple);
 }
+
 .minor p {
   margin-bottom: 1rem;
   color: var(--muted-color);
 }
+
+.minor ul li {
+  margin-left: 1rem;
+  color: var(--muted-color);
+}
+
+.minor ul li a {
+  color: var(--julia-green)
+}
+
+.minor ul li a:hover {
+  color: var(--julia-green-dark)
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: var(--accent-color);
+  background-color: var(--julia-red-light);
   color: #fff;
   font-weight: 600;
   text-decoration: none;
   border-radius: var(--radius);
   transition: background-color var(--transition);
 }
+
 .btn:hover {
-  background-color: #e0433e;
+  background-color: var(--julia-red);
 }
+
 footer {
   background-color: #fff;
   padding: 2rem;
   border-top: 1px solid #eee;
   text-align: center;
 }
+
 footer p, footer a {
   color: var(--muted-color);
   font-size: 0.9rem;
@@ -128,6 +196,7 @@ footer p, footer a {
   display: block;
   text-decoration: none;
 }
+
 footer a:hover {
   color: var(--primary-color);
 }

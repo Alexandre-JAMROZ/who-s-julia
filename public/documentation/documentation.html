@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
-    <link rel="stylesheet" href="/../static/css/styles.css">
+    <!--<link rel="stylesheet" href="/../static/css/styles.css">-->
+    <link rel="stylesheet" href="/public/static/css/styles.css">
 </head>
 <body>
     <header>
@@ -54,11 +55,27 @@
             </p>
 
             <ul>
-                <li>Gratuit et open source</li>
+                <li>Gratuit et open source <a href="https://github.com/JuliaLang/julia/blob/master/LICENSE.md">(Licence MIT)</a></li>
                 <li>Les types définis par l'utilisateur sont aussi rapides
                     et compacts que les types intégrés
                 </li>
-                <li>Pas besoin de vectoriser le code pour plus de performa</li>
+                <li>Pas besoin de vectoriser le code pour plus de performances ;
+                    le code dévectorisé est rapide
+                </li>
+                <li>Conçu pour le parallélisme et le calcul distribué</li>
+                <li>Filetage léger "vert" <a href="https://en.wikipedia.org/wiki/Coroutine">(coroutines)</a></li>
+                <li>Système de typographie discret mais puissant</li>
+                <li>Conversions et promotions élégantes et extensibles
+                    pour les types numériques et autres
+                </li>
+                <li>Un soutien effiace pour <a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a>, 
+                    y compris mais sans s'y limiter, <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>
+                </li>
+                <li>Appelez directement les fonctions C (aucun wrapper ni API spéciale 
+                    n'est nécessaire)
+                </li>
+                <li>Capacités puissantes de type shell pour gérer d'autres processus</li>
+                <li>Macros de type Lisp et autres fonctionnalités de métaprogrammation</li>
             </ul>
         </div>
     </main>
