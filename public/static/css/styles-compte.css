@@ -128,39 +128,16 @@ nav a:hover {
 }
 
 
-/* ----- CLASSE MAIN ----- */
+/* ----- ELEMENT MAIN ----- */
 main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
-}
 
-.main {
-  background-color: #fff;
-  border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  margin-bottom: 2rem;
-}
-
-.main h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--julia-purple);
-}
-
-.main h2 {
-    color: var(--julia-purple);
-}
-
-.main p {
-  margin-bottom: 1rem;
-  color: var(--muted-color);
-}
-
-.main ul li {
-    margin-left: 1rem;
-    color: var(--muted-color);
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 
@@ -174,42 +151,57 @@ main {
   padding: 2rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   margin-bottom: 2rem;
+
+  flex: 1 1 45%;
+  min-width: 300px;
 }
 
-.minor h2 {
-  font-size: 1.5rem;
-  color: var(--julia-purple);
+.minor h1 {
+    font-size: 2rem;
+    color: var(--julia-purple);
+    text-align: center;
 }
 
-.minor p {
-  margin-bottom: 1rem;
-  color: var(--muted-color);
-}
-
-.minor ul li {
-  margin-left: 1rem;
-  color: var(--muted-color);
+/* ----- CLASSE COMPTE-FORM ----- */
+form.compte-form > div.compte-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 
-/* ----- CLASSE BTN ----- */
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--julia-red-light);
+/* ----- ELEMENT BTN ----- */
+form.compte-form button {
+  display: block;
+  margin: 2rem auto 0 auto;
+  padding: 0.75rem 2rem;
+  background-color: var(--julia-purple);
   color: #fff;
-  font-weight: 600;
-  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
   border-radius: var(--radius);
-  transition: background-color var(--transition);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
-.btn:hover {
-  background-color: var(--julia-red);
+form.compte-form button:hover {
+  background-color: var(--julia-purple-dark);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 
 /* ----- ELEMENT LABEL ----- */
-form.compte-form div label {
+form.compte-form > div.compte-form label {
+    margin-bottom: 0.3rem;
+    font-weight: 600;
     color: var(--muted-color);
-} 
+}
+
+
+/* ----- ELEMENT INPUT ----- */
+form.compte-form > div.compte-form input {
+    padding: 0.5rem;
+}

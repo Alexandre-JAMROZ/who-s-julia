@@ -49,26 +49,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
     <main>
-        <div class="main">
+        <!-- Div register -->
+        <div class="minor">
             <h1>Créer un compte</h1>
 
             <?php if ($error): ?>
                 <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
-            <?php endif; ?>
+            <?php endif; ?>    
 
             <form action="compte.php" method="post" class="compte-form">
                 <div class="compte-form">
                     <label for="pseudo">Votre pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" required value="<?php echo htmlspecialchars($pseudo); ?>">
+                    <input type="text" name="pseudo" id="pseudo" required placeholder="ex: Torterra" value="<?php echo htmlspecialchars($pseudo); ?>">
                 </div>
 
                 <div class="compte-form">
                     <label for="email">Votre E-mail</label>
-                    <input type="email" name="email" id="email" required value="<?php echo htmlspecialchars($email); ?>">
+                    <input type="email" name="email" id="email" required placeholder="ex: torterra@gmail.com" value="<?php echo htmlspecialchars($email); ?>">
                 </div>
 
                 <div class="compte-form">
-                    <label for="password">Mot de passe</label>
+                    <label for="password">Votre mot de passe</label>
                     <input type="password" name="password" id="password" required>
                 </div>
 
@@ -81,6 +82,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button type="submit">Créer votre compte</button>
                 </div>
             </form>
+        </div>
+
+        <!-- Div login -->
+        <div class="minor">
+                <h1>Se connecter</h1>
+
+                <!-- Mettre le error php -->
+                <!-- Ajouter php htmlspecialchars dans chaque input -->
+                <form action="compte.php" method="post" class="compte-form">
+                    <div class="compte-form">
+                        <label for="lpseudo">Votre pseudo</label>
+                        <input type="text" name="lpseudo" id="lpseudo" required>
+                    </div>
+
+                    <div class="compte-form">
+                        <label for="lpassword">Votre mot de passe</label>
+                        <input type="password" name="lpassword" id="lpassword" required>
+                    </div>
+
+                    <div class="compte-form">
+                        <button type="submit">Se connecter</button>
+                    </div>
+                </form>  
         </div>
     </main>
 
