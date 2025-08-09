@@ -145,7 +145,6 @@ main {
 
 .minor h2 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
   color: var(--julia-purple);
 }
 
@@ -159,11 +158,11 @@ main {
   color: var(--muted-color);
 }
 
-.minor ul li a {
+a {
   color: var(--julia-green)
 }
 
-.minor ul li a:hover {
+a:hover {
   color: var(--julia-green-dark)
 }
 
