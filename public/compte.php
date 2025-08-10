@@ -1,22 +1,44 @@
 <?php
 
-require_once __DIR__ . '/../config/register.php';
+$msgRegister = '';
+$errorRegister = false;
+$msgLogin = '';
+$errorLogin = false;
 
-$error = '';
+
 $pseudo = '';
 $email = '';
+$lpseudo = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Formulaire register soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'])) {
+    require_once __DIR__ . '/../config/register.php';
+
     $pseudo = trim($_POST['pseudo'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
 
-    if (register($pseudo, $email, $password, $confirm_password, $error)) {
+    if (register($pseudo, $email, $password, $confirm_password, $msgRegister)) {
         // Succès : Rediriger vers l'accueil
-        header('Location: index.html?success=1');
-        exit;
+        //header('Location: index.html?success=1');
+        //exit;
     } else {
+        // Erreur : On reste sur la page
+        $errorRegister = true;
+    }
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lpseudo'])) {
+    require_once __DIR__ . '/../config/login.php';
+
+    $lpseudo = trim($_POST['lpseudo'] ?? '');
+    $lpassword = $_POST['lpassword'] ?? '';
+
+    if (login($lpseudo, $lpassword, $msgLogin)) {
+        // Succès : Rediriger vers l'accueil
+        //header('Location: index.html?success=1');
+        //exit;
+    } else {
+        $errorLogin = true;
         // Erreur : On reste sur la page
     }
 }
@@ -53,9 +75,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="minor">
             <h1>Créer un compte</h1>
 
-            <?php if ($error): ?>
-                <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
-            <?php endif; ?>    
+            <?php if ($msgRegister && $errorRegister): ?>
+                <p style="color: red;"><?php echo htmlspecialchars($msgRegister); ?></p>
+            <?php endif; ?>
+            <?php if ($msgRegister && !$errorRegister): ?>
+                <p style="color: green;"><?php echo htmlspecialchars($msgRegister); ?></p>
+            <?php endif; ?>  
 
             <form action="compte.php" method="post" class="compte-form">
                 <div class="compte-form">
@@ -88,12 +113,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="minor">
                 <h1>Se connecter</h1>
 
-                <!-- Mettre le error php -->
+                <?php if ($msgLogin && $errorLogin): ?>
+                    <p style="color: red;"><?php echo htmlspecialchars($msgLogin); ?></p>
+                <?php endif; ?>
+                <?php if ($msgLogin && !$errorLogin): ?>
+                    <p style="color: green;"><?php echo htmlspecialchars($msgLogin); ?></p>
+                <?php endif; ?>  
+
                 <!-- Ajouter php htmlspecialchars dans chaque input -->
                 <form action="compte.php" method="post" class="compte-form">
                     <div class="compte-form">
                         <label for="lpseudo">Votre pseudo</label>
-                        <input type="text" name="lpseudo" id="lpseudo" required>
+                        <input type="text" name="lpseudo" id="lpseudo" required placeholder="ex: Torterra" value="<?php echo htmlspecialchars($lpseudo); ?>">
                     </div>
 
                     <div class="compte-form">

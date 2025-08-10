@@ -1,0 +1,39 @@
+<?php
+// Fichier connexion d'un compte utilisateur
+
+// Inclure la base de données
+require_once "db.php"; 
+
+// Fonction pour se connecter
+function login($lpseudo, $lpassword, &$msg) {
+    $msg = null;
+
+    // Vérification que tous les champs sont remplis
+    if (empty($lpseudo) || empty($lpassword)) {
+        $msg = "Veuillez remplir tous les champs.";
+        return false;
+    }
+
+    // Vérification que le pseudo existe
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT pseudo FROM users WHERE pseudo = :lpseudo");
+    $stmt->execute(['lpseudo' => $lpseudo]);
+    if (!$stmt->fetch()) {
+        $msg = "Ce pseudo est inexistant.";
+        return false;
+    }
+
+    // Vérification mot de passe
+    $stmt = $pdo->prepare("SELECT password_hash FROM users WHERE pseudo = :lpseudo");
+    $stmt->execute(['lpseudo' => $lpseudo]);
+    $password_hash = $stmt->fetchColumn();
+    
+    if (!password_verify($lpassword, $password_hash)) {
+        $msg = "Le mot de passe est incorrect.";
+        return false;
+    } else {
+        $msg = "Connexion réussie !";
+        return true;
+    }
+
+}
