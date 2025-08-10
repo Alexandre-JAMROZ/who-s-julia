@@ -209,7 +209,11 @@ main {
 }
 
 
-/* ----- ELEMENT LABEL ----- */
-form.compte-form div label {
-    color: var(--muted-color);
-} 
+/* ----- CLASSE DECONNECT ----- */
+nav a.deconnect {
+    color: var(--julia-red);
+}
+
+nav a.deconnect:hover {
+    color: var(--julia-red-dark);
+}

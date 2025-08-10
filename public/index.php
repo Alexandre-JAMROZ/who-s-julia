@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+  require_once __DIR__ . "/../config/logout.php";
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,7 +24,10 @@
           <li><a href="#">Accueil</a></li>
           <li><a href="documentation/documentation.html">Documentation</a></li>
           <li><a href="modules/modules.html">Modules</a></li>
-          <li><a href="compte.php">Créer un compte</a></li>
+          <li><a href="compte.php">Mon compte</a></li>
+          <?php if (isset($_SESSION['user'])): ?>
+          <li><a class="deconnect" href="index.php?action=logout">Déconnexion</a></li>
+          <?php endif; ?>
         </ul>
       </nav>
       <div class="profile">
@@ -22,6 +35,13 @@
       </div>
     </div>
   </header>
+
+  <?php if (isset($_SESSION['user'])): ?>
+    <div class="welcome-banner">
+      <h1 style="text-align: center;">Bienvenue <?php echo htmlspecialchars($_SESSION['user']); ?></h1>
+    </div>
+  <?php endif; ?>  
+  
   <main>
     <!-- Présentation du langage Julia -->
     <section class="main" id="presentation">

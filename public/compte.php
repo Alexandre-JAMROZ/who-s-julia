@@ -61,9 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'])) {
                 <li><a href="/">Accueil</a></li>
                 <li><a href="documentation/documentation.html">Documentation</a></li>
                 <li><a href="modules/modules.html">Modules</a></li>
-                <li><a href="#">Créer un compte</a></li>
+                <li><a href="#">Mon compte</a></li>
                 </ul>
             </nav>
+            <p class="nav-pseudo">Test</p>
             <div class="profile">
                 <img src="https://via.placeholder.com/40" alt="Photo de profil">
             </div>

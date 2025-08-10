@@ -28,10 +28,19 @@ function login($lpseudo, $lpassword, &$msg) {
     $stmt->execute(['lpseudo' => $lpseudo]);
     $password_hash = $stmt->fetchColumn();
     
+    // Mauvais mot de passe
     if (!password_verify($lpassword, $password_hash)) {
         $msg = "Le mot de passe est incorrect.";
         return false;
     } else {
+        // Bon mot de passe, démarrer session
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        // Stocker le pseudo
+        $_SESSION['user'] = $lpseudo;
+
         $msg = "Connexion réussie !";
         return true;
     }
