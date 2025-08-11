@@ -1,0 +1,102 @@
+/* Styles pour l'arbre D3.js des modules */
+
+.modules-tree {
+  background-color: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  overflow: visible;
+}
+
+#tree-container {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
+
+/* Styles pour les nœuds */
+.node rect {
+  rx: 12;
+  ry: 12;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.node.level-1 rect {
+  fill: url(#gradient-primary);
+  stroke: none;
+  filter: drop-shadow(0 4px 12px rgba(60, 121, 245, 0.3));
+}
+
+.node.level-2, .node.level-3 rect {
+  fill: url(#gradient-accent);
+  stroke: none;
+  filter: drop-shadow(0 4px 12px rgba(255, 84, 73, 0.3));
+}
+
+.node:hover rect {
+  filter: drop-shadow(0 8px 20px rgba(60, 121, 245, 0.4));
+  transform: translateY(-2px);
+}
+
+.node.level-2:hover rect, .node.level-3:hover rect {
+  filter: drop-shadow(0 8px 20px rgba(255, 84, 73, 0.4));
+}
+
+/* Styles pour le texte des nœuds */
+.node text.title {
+  fill: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.node text.description {
+  fill: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+/* Styles pour les badges */
+.status-badge {
+  fill: #4CAF50;
+  stroke: none;
+}
+
+.status-badge.locked {
+  fill: #9E9E9E;
+}
+
+.badge-text {
+  fill: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+/* Styles pour les liens */
+.link {
+  fill: none;
+  stroke: #3C79F5;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #tree-container {
+    height: 400px;
+  }
+  
+  .node text.title {
+    font-size: 16px;
+  }
+  
+  .node text.description {
+    font-size: 11px;
+  }
+}
