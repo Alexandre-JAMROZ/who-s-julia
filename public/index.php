@@ -25,9 +25,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
           <li><a href="documentation/documentation.html">Documentation</a></li>
           <li><a href="modules/modules.html">Modules</a></li>
           <li><a href="compte.php">Mon compte</a></li>
-          <?php if (isset($_SESSION['user'])): ?>
-          <li><a class="deconnect" href="index.php?action=logout">Déconnexion</a></li>
-          <?php endif; ?>
+          <?php include __DIR__ . "/../config/logoutButton.php"; ?>
         </ul>
       </nav>
       <div class="profile">

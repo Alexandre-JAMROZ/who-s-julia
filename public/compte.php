@@ -1,5 +1,11 @@
 <?php
 
+session_start();
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    require_once __DIR__ . "/../config/logout.php";
+    exit;
+}
+
 $msgRegister = '';
 $errorRegister = false;
 $msgLogin = '';
@@ -62,9 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'])) {
                 <li><a href="documentation/documentation.html">Documentation</a></li>
                 <li><a href="modules/modules.html">Modules</a></li>
                 <li><a href="#">Mon compte</a></li>
+                <?php include __DIR__ . "/../config/logoutButton.php"; ?>
                 </ul>
             </nav>
-            <p class="nav-pseudo">Test</p>
             <div class="profile">
                 <img src="https://via.placeholder.com/40" alt="Photo de profil">
             </div>

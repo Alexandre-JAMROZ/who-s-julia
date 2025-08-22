@@ -170,6 +170,16 @@ form.compte-form > div.compte-form {
 }
 
 
+/* ----- CLASSE DECONNECT ----- */
+nav a.deconnect {
+    color: var(--julia-red);
+}
+
+nav a.deconnect:hover {
+    color: var(--julia-red-dark);
+}
+
+
 /* ----- ELEMENT BTN ----- */
 form.compte-form button {
   display: block;
