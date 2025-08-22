@@ -4,197 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
-    <link rel="stylesheet" href="/../static/css/styles-doc.css">
-    <link rel="stylesheet" href="/public/static/css/styles-doc.css">
+    <link rel="stylesheet" href="/static/css/styles-doc.css">
+    <!-- TEST -->
+    <link rel="stylesheet" href="../static/css/styles-doc.css">
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <nav>
-                <ul>
-                    <li><a href="../">Accueil</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="../modules/modules.html">Modules</a></li>
-                    <li><a href="../compte.php">Mon compte</a></li>
-                </ul>
-            </nav>
-            <div class="profile">
-                <img src="https://via.placeholder.com/40" alt="Photo de profil">
+    <div class="layout">
+        <nav>
+            <div class="docs-logo">
+                <a href="../"><img src="https://julialang.org/assets/infra/logo.svg" alt="Logo Julia officiel" height="150"></a>
             </div>
-        </div>
-    </header>
+            <ul class="docs-menu">
+                <li>
+                    <div class="toggle">
+                        Julia Documentation
+                    </div>
+                    <ul class="docs-submenu">
+                        <li><a href="#">Introduction</a></li>
+                    </ul>
+                </li>
 
-    <main>
-        <nav class="sidebar">
-            <!--Bar latéralle pour naviguer dans la doc-->
+                <li>
+                    <div class="toggle">
+                        Manuel
+                    </div>
+                    <ul class="docs-submenu">
+                        <li><a href="/documentation/manuel/bases.html">Les Bases</a></li>
+                        <li><a href="/documentation/manuel/booleens.html">Les Booléens</a></li>
+                        <li><a href="/documentation/manuel/nombres.html">Les Nombres</a></li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
 
-        <div class="main" id="presentation">
-            <h1>Julia 1.11 Documentation</h1>
-            <p>Bienvenue sur la documentation de Julia 1.11 en français.
-                Vous trouverez les dans le menu de navigation à gauche
-                le manuel du langage Julia.
-            </p>
-        </div>
+        <main>
+            <div class="main" id="presentation">
+                <h1>Julia 1.11 Documentation</h1>
+                <p>Bienvenue sur la documentation de Julia 1.11 en français.
+                    Vous trouverez le manuel dans le menu de navigation à gauche.
+                </p>
+                <ul>
+                    <p>Liens importants :</p>
+                    <li><a href="../">Accueil</a></li>
+                    <li><a href="https://docs.julialang.org/en/v1/" target="_blank">Documentation officielle (Anglaise)</a></li>
+                </ul>
+            </div>
 
-        <div class="minor" id="introduction">
-            <h2>Introduction</h2>
-            <p>Le calcul scientifique exige traditionnellement les 
-                performances les plus élevées, mais les experts du 
-                domaine se sont largement tournés vers des langages 
-                dynamiques plus lents pour leur travail quotidien. 
-                Nous pensons qu’il existe de nombreuses bonnes raisons 
-                de préférer les langages dynamiques pour ces 
-                applications, et nous ne nous attendons pas à ce que 
-                leur utilisation diminue. Heureusement, la conception 
-                de langages modernes et les techniques de compilation 
-                permettent d’éliminer en grande partie le compromis en 
-                termes de performances et de fournir un environnement 
-                unique suffisamment productif pour le prototypage et 
-                suffisamment efficace pour déployer des applications 
-                gourmandes en performances. Le langage de programmation 
-                Julia remplit ce rôle : c'est un langage dynamique 
-                flexible, adapté au calcul scientifique et numérique, 
-                avec des performances comparables aux langages 
-                traditionnels typés statiquement.
-            </p>
-            <p>Étant donné que le compilateur de Julia est différent 
-                des interprètes utilisés pour des langages comme Python 
-                ou R, vous constaterez peut-être que les performances 
-                de Julia ne sont pas intuitives au début. Si vous 
-                trouvez que quelque chose est lent, nous vous 
-                recommandons vivement de lire le 
-                <a href="https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-tips">Conseils de performance</a> 
-                section avant d'essayer autre chose. Une fois que 
-                vous avez compris comment fonctionne Julia, il est 
-                facile d’écrire du code presque aussi rapide que C.
-            </p>
-        </div>
+            <div class="minor" id="introduction">
+                <h2>Introduction</h2>
+                <p>Le calcul scientifique exige traditionnellement les 
+                    performances les plus élevées, mais les experts du 
+                    domaine se sont largement tournés vers des langages 
+                    dynamiques plus lents pour leur travail quotidien. 
+                    Nous pensons qu’il existe de nombreuses bonnes raisons 
+                    de préférer les langages dynamiques pour ces 
+                    applications, et nous ne nous attendons pas à ce que 
+                    leur utilisation diminue. Heureusement, la conception 
+                    de langages modernes et les techniques de compilation 
+                    permettent d’éliminer en grande partie le compromis en 
+                    termes de performances et de fournir un environnement 
+                    unique suffisamment productif pour le prototypage et 
+                    suffisamment efficace pour déployer des applications 
+                    gourmandes en performances. Le langage de programmation 
+                    Julia remplit ce rôle : c'est un langage dynamique 
+                    flexible, adapté au calcul scientifique et numérique, 
+                    avec des performances comparables aux langages 
+                    traditionnels typés statiquement.
+                </p>
+                <p>Étant donné que le compilateur de Julia est différent 
+                    des interprètes utilisés pour des langages comme Python 
+                    ou R, vous constaterez peut-être que les performances 
+                    de Julia ne sont pas intuitives au début. Si vous 
+                    trouvez que quelque chose est lent, nous vous 
+                    recommandons vivement de lire le 
+                    <a href="https://docs.julialang.org/en/v1/manual/performance-tips/#man-performance-tips">Conseils de performance (EN)</a> 
+                    section avant d'essayer autre chose. Une fois que 
+                    vous avez compris comment fonctionne Julia, il est 
+                    facile d’écrire du code presque aussi rapide que C.
+                </p>
+            </div>
 
-        <div class="minor" id="comparison">
-            <h2>Julia comparé aux autres langages</h2>
-            <p>Julia propose une saisie facultative, une répartition 
-                multiple et de bonnes performances, obtenues à l'aide 
-                de l'inférence de type et 
-                <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation">compilation juste à temps (JIT)</a> 
-                (et <a href="https://github.com/JuliaLang/PackageCompiler.jl">compilation facultative à l'avance</a>), 
-                implémenté en utilisant 
-                <a href="https://en.wikipedia.org/wiki/Low_Level_Virtual_Machine">LLVM</a>. 
-                Il s'agit d'un multi-paradigme, combinant des 
-                fonctionnalités de programmation impérative, 
-                fonctionnelle et orientée objet. Julia offre facilité 
-                et expressivité pour le calcul numérique de haut niveau, 
-                au même titre que des langages tels que R, MATLAB et 
-                Python, mais prend également en charge la programmation 
-                générale. Pour y parvenir, Julia s'appuie sur la 
-                lignée des langages de programmation mathématique, 
-                mais emprunte également beaucoup aux langages dynamiques 
-                populaires, notamment 
-                <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">Zézayer</a>, 
-                <a href="https://en.wikipedia.org/wiki/Perl_(programming_language)">Perl</a>, 
-                <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>, 
-                <a href="https://en.wikipedia.org/wiki/Lua_(programming_language)">Lua</a>, et 
-                <a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Rubis</a>.</p>
-            <p>Les écarts les plus significatifs de Julia par rapport 
-                aux langages dynamiques typiques sont les suivants :
-            </p>
-            <ul>
-                <li>Le langage de base impose très peu ; Julia Base 
-                    et la bibliothèque standard sont écrites en Julia 
-                    elle-même, y compris des opérations primitives 
-                    comme l'arithmétique des entiers
-                </li>
-                <li>Un langage riche de types pour construire et 
-                    décrire des objets, qui peut également éventuellement 
-                    être utilisé pour faire des déclarations de types
-                </li>
-                <li>La possibilité de définir le comportement des fonctions sur de 
-                    nombreuses combinaisons de types d'arguments via 
-                    <a href="https://en.wikipedia.org/wiki/Multiple_dispatch">répartition multiple</a>
-                </li>
-                <li>Génération automatique de code efficace et spécialisé pour 
-                    différents types d'arguments
-                </li>
-                <li>Bonnes performances, proches de celles des langages compilés 
-                    statiquement comme C
+            <div class="minor" id="comparison">
+                <h2>Julia comparé aux autres langages</h2>
+                <p>Julia propose une saisie facultative, une répartition 
+                    multiple et de bonnes performances, obtenues à l'aide 
+                    de l'inférence de type et 
+                    <a href="https://fr.wikipedia.org/wiki/Compilation_%C3%A0_la_vol%C3%A9e" target="_blank">compilation juste à temps (JIT)</a> 
+                    (et <a href="https://github.com/JuliaLang/PackageCompiler.jl" target="_blank">compilation facultative à l'avance</a>), 
+                    implémenté en utilisant 
+                    <a href="https://fr.wikipedia.org/wiki/LLVM" target="_blank">LLVM</a>. 
+                    Il s'agit d'un multi-paradigme, combinant des 
+                    fonctionnalités de programmation impérative, 
+                    fonctionnelle et orientée objet. Julia offre facilité 
+                    et expressivité pour le calcul numérique de haut niveau, 
+                    au même titre que des langages tels que R, MATLAB et 
+                    Python, mais prend également en charge la programmation 
+                    générale. Pour y parvenir, Julia s'appuie sur la 
+                    lignée des langages de programmation mathématique, 
+                    mais emprunte également beaucoup aux langages dynamiques 
+                    populaires, notamment 
+                    <a href="https://fr.wikipedia.org/wiki/Lisp" target="_blank">Liso</a>, 
+                    <a href="https://fr.wikipedia.org/wiki/Perl_(langage)" target="_blank">Perl</a>, 
+                    <a href="https://fr.wikipedia.org/wiki/Python_(langage)" target="_blank">Python</a>, 
+                    <a href="https://fr.wikipedia.org/wiki/Lua" target="_blank">Lua</a>, et 
+                    <a href="https://fr.wikipedia.org/wiki/Ruby" target="_blank">Rubis</a>.</p>
+                <p>Les écarts les plus significatifs de Julia par rapport 
+                    aux langages dynamiques typiques sont les suivants :
+                </p>
+                <ul>
+                    <li>Le langage de base impose très peu ; Julia Base 
+                        et la bibliothèque standard sont écrites en Julia 
+                        elle-même, y compris des opérations primitives 
+                        comme l'arithmétique des entiers
                     </li>
-            </ul>
-            <p></p>
-        </div>
+                    <li>Un langage riche de types pour construire et 
+                        décrire des objets, qui peut également éventuellement 
+                        être utilisé pour faire des déclarations de types
+                    </li>
+                    <li>La possibilité de définir le comportement des fonctions sur de 
+                        nombreuses combinaisons de types d'arguments via 
+                        <a href="https://fr.wikipedia.org/wiki/Dispatch_multiple" target="_blank">répartition multiple</a>
+                    </li>
+                    <li>Génération automatique de code efficace et spécialisé pour 
+                        différents types d'arguments
+                    </li>
+                    <li>Bonnes performances, proches de celles des langages compilés 
+                        statiquement comme C
+                        </li>
+                </ul>
+                <p></p>
+            </div>
 
-        <div class="minor" id="identity">
-            <h2>Qu'est-ce qui fait de Julia, Julia ?</h2>
-            <p>Bien que le programmeur occasionnel n'ait pas besoin 
-                d'utiliser explicitement des types ou une répartition 
-                multiple, ce sont les principales fonctionnalités 
-                unificatrices de Julia : les fonctions sont définies 
-                sur différentes combinaisons de types d'arguments et 
-                appliquées par répartition à la définition de 
-                correspondance la plus spécifique. Ce modèle convient 
-                bien à la programmation mathématique, où il n'est pas 
-                naturel que le premier argument « possède » une 
-                opération comme dans la répartition orientée objet 
-                traditionnelle. Les opérateurs ne sont que des fonctions 
-                avec une notation spéciale – pour étendre l'ajout à de 
-                nouveaux types de données définis par l'utilisateur, 
-                vous définissez de nouvelles méthodes pour le + 
-                fonction. Le code existant s’applique ensuite de 
-                manière transparente aux nouveaux types de données.
-            </p>
-            <p>
-                En partie à cause de l'inférence de type au moment 
-                de l'exécution (augmentée par des annotations de type 
-                facultatives), et en partie à cause d'une forte 
-                concentration sur les performances dès le début du 
-                projet, l'efficacité de calcul de Julia dépasse celle 
-                des autres langages dynamiques, et rivalise même avec 
-                celle des langages compilés statiquement. Pour les 
-                problèmes numériques à grande échelle, la vitesse a 
-                toujours été, continue d'être et sera probablement 
-                toujours cruciale : la quantité de données traitées a 
-                facilement suivi le rythme de la loi de Moore au cours 
-                des dernières décennies.
-            </p>
-        </div>
+            <div class="minor" id="identity">
+                <h2>Qu'est-ce qui fait de Julia, Julia ?</h2>
+                <p>Bien que le programmeur occasionnel n'ait pas besoin 
+                    d'utiliser explicitement des types ou une répartition 
+                    multiple, ce sont les principales fonctionnalités 
+                    unificatrices de Julia : les fonctions sont définies 
+                    sur différentes combinaisons de types d'arguments et 
+                    appliquées par répartition à la définition de 
+                    correspondance la plus spécifique. Ce modèle convient 
+                    bien à la programmation mathématique, où il n'est pas 
+                    naturel que le premier argument « possède » une 
+                    opération comme dans la répartition orientée objet 
+                    traditionnelle. Les opérateurs ne sont que des fonctions 
+                    avec une notation spéciale – pour étendre l'ajout à de 
+                    nouveaux types de données définis par l'utilisateur, 
+                    vous définissez de nouvelles méthodes pour le + 
+                    fonction. Le code existant s’applique ensuite de 
+                    manière transparente aux nouveaux types de données.
+                </p>
+                <p>
+                    En partie à cause de l'inférence de type au moment 
+                    de l'exécution (augmentée par des annotations de type 
+                    facultatives), et en partie à cause d'une forte 
+                    concentration sur les performances dès le début du 
+                    projet, l'efficacité de calcul de Julia dépasse celle 
+                    des autres langages dynamiques, et rivalise même avec 
+                    celle des langages compilés statiquement. Pour les 
+                    problèmes numériques à grande échelle, la vitesse a 
+                    toujours été, continue d'être et sera probablement 
+                    toujours cruciale : la quantité de données traitées a 
+                    facilement suivi le rythme de la loi de Moore au cours 
+                    des dernières décennies.
+                </p>
+            </div>
 
-        <div class="minor" id="advantage">
-            <h2>Avantages de Julia</h2>
-            <p>
-                Julia vise à créer un langage facile d'accès tout en combinant
-                puissance et efficacité. En addition, voici quelques avantages
-                supplémentaires sur Julia :
-            </p>
+            <div class="minor" id="advantage">
+                <h2>Avantages de Julia</h2>
+                <p>
+                    Julia vise à créer un langage facile d'accès tout en combinant
+                    puissance et efficacité. En addition, voici quelques avantages
+                    supplémentaires sur Julia :
+                </p>
 
-            <ul>
-                <li>Gratuit et open source <a href="https://github.com/JuliaLang/julia/blob/master/LICENSE.md">(Licence MIT)</a></li>
-                <li>Les types définis par l'utilisateur sont aussi rapides
-                    et compacts que les types intégrés
-                </li>
-                <li>Pas besoin de vectoriser le code pour plus de performances ;
-                    le code dévectorisé est rapide
-                </li>
-                <li>Conçu pour le parallélisme et le calcul distribué</li>
-                <li>Filetage léger "vert" <a href="https://en.wikipedia.org/wiki/Coroutine">(coroutines)</a></li>
-                <li>Système de typographie discret mais puissant</li>
-                <li>Conversions et promotions élégantes et extensibles
-                    pour les types numériques et autres
-                </li>
-                <li>Un soutien effiace pour <a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a>, 
-                    y compris mais sans s'y limiter, <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>
-                </li>
-                <li>Appelez directement les fonctions C (aucun wrapper ni API spéciale 
-                    n'est nécessaire)
-                </li>
-                <li>Capacités puissantes de type shell pour gérer d'autres processus</li>
-                <li>Macros de type Lisp et autres fonctionnalités de métaprogrammation</li>
-            </ul>
-        </div>
-    </main>
+                <ul>
+                    <li>Gratuit et open source <a href="https://github.com/JuliaLang/julia/blob/master/LICENSE.md">(Licence MIT)</a></li>
+                    <li>Les types définis par l'utilisateur sont aussi rapides
+                        et compacts que les types intégrés
+                    </li>
+                    <li>Pas besoin de vectoriser le code pour plus de performances ;
+                        le code dévectorisé est rapide
+                    </li>
+                    <li>Conçu pour le parallélisme et le calcul distribué</li>
+                    <li>Filetage léger "vert" <a href="https://fr.wikipedia.org/wiki/Coroutine" target="_blank">(coroutines)</a></li>
+                    <li>Système de typographie discret mais puissant</li>
+                    <li>Conversions et promotions élégantes et extensibles
+                        pour les types numériques et autres
+                    </li>
+                    <li>Un soutien effiace pour <a href="https://fr.wikipedia.org/wiki/Unicode" target="_blank">Unicode</a>, 
+                        y compris mais sans s'y limiter, <a href="https://fr.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8</a>
+                    </li>
+                    <li>Appelez directement les fonctions C (aucun wrapper ni API spéciale 
+                        n'est nécessaire)
+                    </li>
+                    <li>Capacités puissantes de type shell pour gérer d'autres processus</li>
+                    <li>Macros de type Lisp et autres fonctionnalités de métaprogrammation</li>
+                </ul>
+            </div>
+        </main>
+    </div>
 
-    <footer>
-        <p><strong>Contacts&nbsp;:</strong> alexandrejamrozpro@gmail.com | lucas.jamet03@gmail.com </p>
-        <p><strong>Université&nbsp;:</strong> Université de la Nouvelle-Calédonie</p>
-        <p>Projet Tutoré - Alexandre JAMROZ & Lucas JAMET</p>
-    </footer>
 </body>
 </html>
