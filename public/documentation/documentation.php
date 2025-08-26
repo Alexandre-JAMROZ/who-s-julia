@@ -3,37 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
+    <title>Documentation - Julia</title>
     <link rel="stylesheet" href="/static/css/styles-doc.css">
 </head>
 <body>
     <div class="layout">
-        <nav>
-            <div class="docs-logo">
-                <a href="../"><img src="https://julialang.org/assets/infra/logo.svg" alt="Logo Julia officiel" height="150"></a>
-            </div>
-            <ul class="docs-menu">
-                <li>
-                    <div class="toggle">
-                        Julia Documentation
-                    </div>
-                    <ul class="docs-submenu">
-                        <li><a href="#">Introduction</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <div class="toggle">
-                        Manuel
-                    </div>
-                    <ul class="docs-submenu">
-                        <li><a href="/documentation/manuel/bases.html">Les Bases</a></li>
-                        <li><a href="/documentation/manuel/booleens.html">Les Booléens</a></li>
-                        <li><a href="/documentation/manuel/nombres.html">Les Nombres</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        <?php include __DIR__ . "/../../config/navDocs.php" ?>
 
         <main>
             <div class="main" id="presentation">
