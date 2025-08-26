@@ -23,10 +23,19 @@
     --julia-red: #CB3C33;
     --julia-red-dark: #892922;
 
+    /* Exemples codes */
+    --prompt: #6d6dff;
+    --language-julia: #50affc;
+    --value: #df8600;
+    --comment: #BBB;
+    --bg-code: #ebecff;
+
     /*
     julia-purple : Titres
     julia-green : Liens, boutons d'actions
     julia-red : Avertissements, points importants
+
+    bleus : exemple code julia
 
     light : fond par défaut, arrière-plan
     normal : principale, titre, clic
@@ -100,6 +109,10 @@ nav li {
   font-weight: bold;
 }
 
+.docs-submenu li a {
+  text-decoration: none;
+}
+
 
 /* ----- ELEMENT MAIN ----- */
 main {
@@ -149,6 +162,45 @@ main {
   color: var(--muted-color);
 }
 
+
+/* ----- CLASSE SPAN.CODE ----- */
+span.code {
+  background-color: var(--bg-code);
+  padding: 3px 6px 3px 6px;
+  border-radius: 4px;
+  color: var(--prompt);
+  font-family: "Consolas";
+}
+
+
+/* ----- ELEMENT PRE / CODE ----- */
+pre {
+  border: solid 2px #DDD;
+  border-radius: 8px;
+  padding-left: 1rem;
+}
+
+pre code {
+  font-family: "Consolas";
+}
+
+
+/* ----- CLASSES EXEMPLES CODES (PROMPT, LANGUAGE-JULIA, VALUE, COMMENT) ----- */
+.prompt {
+  color: var(--prompt);
+}
+
+.language-julia {
+  color: var(--language-julia);
+}
+
+.value {
+  color: var(--value);
+}
+
+.comment {
+  color: var(--comment);
+}
 
 /* ----- ELEMENT TITRES (H*) ----- */
 h1, h2 {

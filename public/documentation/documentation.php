@@ -14,13 +14,16 @@
             <div class="main" id="presentation">
                 <h1>Julia 1.11 Documentation</h1>
                 <p>Bienvenue sur la documentation de Julia 1.11 en français.
-                    Vous trouverez le manuel dans le menu de navigation à gauche.
+                    Vous trouverez le manuel dans le menu de navigation à gauche. Voici quelques liens importants :
                 </p>
                 <ul>
-                    <p>Liens importants :</p>
                     <li><a href="../">Accueil</a></li>
                     <li><a href="https://docs.julialang.org/en/v1/" target="_blank">Documentation officielle (Anglaise)</a></li>
                 </ul>
+                <p>
+                    Référez-vous à la documentation anglaise pour une documentation 
+                    complète et mieux structurée.
+                </p>
             </div>
 
             <div class="minor" id="introduction">
