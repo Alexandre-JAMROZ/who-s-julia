@@ -22,9 +22,6 @@
                 <li><a href="/documentation/manuel/numbers.php">Les Nombres</a></li>
                 <li><a href="/documentation/manuel/conditionals.php">Les Conditions</a></li>
                 <li><a href="/documentation/manuel/vectors.php">Les Vecteurs (listes)</a></li>
-                <li><a href="/documentation/manuel/bitwiseOperations.php">Les Opérations Bits</a></li>
-                <li><a href="/documentation/manuel/ranges.php">Les 'Ranges'</a></li>
-                <li><a href="/documentation/manuel/loops.php">Les Boucles</a></li>
                 <p class="comment">-- Ajouter de la documentation supplémentaire --</p>
             </ul>
         </li>
