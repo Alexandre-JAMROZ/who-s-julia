@@ -14,26 +14,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apprendre Julia</title>
-  <link rel="stylesheet" href="static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
   <header>
-    <div class="nav-container">
-      <nav>
-        <ul>
-          <li><a href="#">Accueil</a></li>
-          <li><a href="documentation/documentation.html">Documentation</a></li>
-          <li><a href="modules/modules.html">Modules</a></li>
-          <li><a href="compte.php">Mon compte</a></li>
-          <?php include __DIR__ . "/../config/logoutButton.php"; ?>
-        </ul>
-      </nav>
-      <div class="profile">
-        <img src="https://via.placeholder.com/40" alt="Photo de profil">
-      </div>
-    </div>
+    <?php include __DIR__ . "/../config/nav.php" ?>
   </header>
 
+  <!-- Affichage message bienvenue si user connecté-->
   <?php if (isset($_SESSION['user'])): ?>
     <div class="welcome-banner">
       <h1 style="text-align: center;">Bienvenue <?php echo htmlspecialchars($_SESSION['user']); ?></h1>

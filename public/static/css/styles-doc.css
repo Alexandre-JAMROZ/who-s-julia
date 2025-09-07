@@ -23,10 +23,19 @@
     --julia-red: #CB3C33;
     --julia-red-dark: #892922;
 
+    /* Exemples codes */
+    --prompt: #6d6dff;
+    --language-julia: #50affc;
+    --value: #df8600;
+    --comment: #BBB;
+    --bg-code: #ebecff;
+
     /*
     julia-purple : Titres
     julia-green : Liens, boutons d'actions
     julia-red : Avertissements, points importants
+
+    bleus : exemple code julia
 
     light : fond par défaut, arrière-plan
     normal : principale, titre, clic
@@ -34,76 +43,88 @@
     */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ----- GENERAL ----- */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--secondary-color);
+  background-color: var(--julia-purple-light);
   color: var(--text-color);
   line-height: 1.6;
 }
 
-header {
-  background-color: #fff;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+div.layout {
+  display: flex;
+  flex: 1;
 }
 
-.nav-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+/* ----- ELEMENTS NAV ----- */
+nav div.docs-logo {
+  padding-top: 25px;
+  text-align: center;
+}
+
+nav {
+  background-color: #FFF;
+
+  width: 300px;
+  padding: 10px;
+  border: solid 2px #DDD;
+  border-radius: 25px;
+  height: 100vh;
+  overflow-y: auto;
+
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
 }
 
 nav ul {
   list-style: none;
-  display: flex;
-  gap: 1.5rem;
+  padding: 0;
+  margin-left: 1rem;
 }
 
-nav a {
+nav li {
+  margin: 5px 0;
+}
+
+.submenu {
+  display: none;
+  padding-left: 15px;
+}
+
+.submenu a {
+  display: block;
+  padding: 3px 0;
   text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
-  transition: color var(--transition);
+
 }
 
-nav a:hover {
-  color: var(--julia-purple-dark);
+.submenu a:hover {
+  color: gold;
 }
 
-.profile {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
+.toggle {
   cursor: pointer;
-  transition: transform var(--transition);
+  font-weight: bold;
 }
 
-.profile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.docs-submenu li a {
+  text-decoration: none;
 }
 
-.profile:hover {
-  transform: scale(1.05);
-}
 
+/* ----- ELEMENT MAIN ----- */
 main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
+
+  flex: 1;
 }
 
+
+/* ----- CLASSE MAIN ----- */
 .main {
   background-color: #fff;
   border-radius: var(--radius);
@@ -112,29 +133,18 @@ main {
   margin-bottom: 2rem;
 }
 
-.main h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--julia-purple);
-}
-
-.main h2 {
-    color: var(--julia-purple);
-}
-
 .main p {
-  margin-bottom: 1rem;
   color: var(--muted-color);
 }
 
 .main ul li {
-    margin-left: 1rem;
-    color: var(--muted-color);
+  margin-left: 1rem;
+  color: var(--muted-color);
 }
 
+
+/* ----- CLASSE MINOR ----- */
 .minor {
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
   background-color: #fff;
   border-radius: var(--radius);
@@ -143,13 +153,7 @@ main {
   margin-bottom: 2rem;
 }
 
-.minor h2 {
-  font-size: 1.5rem;
-  color: var(--julia-purple);
-}
-
 .minor p {
-  margin-bottom: 1rem;
   color: var(--muted-color);
 }
 
@@ -158,44 +162,56 @@ main {
   color: var(--muted-color);
 }
 
-a {
+
+/* ----- CLASSE SPAN.CODE ----- */
+span.code {
+  background-color: var(--bg-code);
+  padding: 3px 6px 3px 6px;
+  border-radius: 4px;
+  color: var(--prompt);
+  font-family: "Consolas";
+}
+
+
+/* ----- ELEMENT PRE / CODE ----- */
+pre {
+  border: solid 2px #DDD;
+  border-radius: 8px;
+  padding-left: 1rem;
+}
+
+pre code {
+  font-family: "Consolas";
+}
+
+
+/* ----- CLASSES EXEMPLES CODES (PROMPT, LANGUAGE-JULIA, VALUE, COMMENT) ----- */
+.prompt {
+  color: var(--prompt);
+}
+
+.language-julia {
+  color: var(--language-julia);
+}
+
+.value {
+  color: var(--value);
+}
+
+.comment {
+  color: var(--comment);
+}
+
+/* ----- ELEMENT TITRES (H*) ----- */
+h1, h2 {
+  color: var(--julia-purple)
+}
+
+/* ----- ELEMENT A ----- */
+.main a, .minor a {
   color: var(--julia-green)
 }
 
-a:hover {
+.main a:hover, .minor a:hover {
   color: var(--julia-green-dark)
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--julia-red-light);
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: var(--radius);
-  transition: background-color var(--transition);
-}
-
-.btn:hover {
-  background-color: var(--julia-red);
-}
-
-footer {
-  background-color: #fff;
-  padding: 2rem;
-  border-top: 1px solid #eee;
-  text-align: center;
-}
-
-footer p, footer a {
-  color: var(--muted-color);
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  display: block;
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: var(--primary-color);
 }

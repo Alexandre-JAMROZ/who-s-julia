@@ -61,20 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'])) {
 </head>
 <body>
     <header>
-        <div class="nav-container">
-            <nav>
-                <ul>
-                <li><a href="/">Accueil</a></li>
-                <li><a href="documentation/documentation.html">Documentation</a></li>
-                <li><a href="modules/modules.html">Modules</a></li>
-                <li><a href="#">Mon compte</a></li>
-                <?php include __DIR__ . "/../config/logoutButton.php"; ?>
-                </ul>
-            </nav>
-            <div class="profile">
-                <img src="https://via.placeholder.com/40" alt="Photo de profil">
-            </div>
-        </div>
+        <?php include __DIR__ . "/../config/nav.php" ?>
     </header>
 
     <main>
