@@ -66,9 +66,9 @@ Float64
             </div>
 
             <div class="minor">
-                <h2>Les Opérations Arithmétiques</h2>
+                <h2>Les Opérateurs Arithmétiques</h2>
                 <p>
-                    Les opérations arithmétiques fonctionnent pour la plupart de la même 
+                    Les opérateurs arithmétiques fonctionnent pour la plupart de la même 
                     manière que l’arithmétique standard. Notez que l'exponentiation est utilisée 
                     avec <span class="code">^</span> et pas <span class="code">**</span> comparé 
                     à certains langages.

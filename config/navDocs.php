@@ -25,6 +25,7 @@
                 <li><a href="/documentation/manuel/bitwiseOperations.php">Les Opérations Bits</a></li>
                 <li><a href="/documentation/manuel/ranges.php">Les 'Ranges'</a></li>
                 <li><a href="/documentation/manuel/loops.php">Les Boucles</a></li>
+                <p>-- Ajouter de la documentation supplémentaire --</p>
             </ul>
         </li>
     </ul>
