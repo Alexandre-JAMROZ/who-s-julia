@@ -217,3 +217,9 @@ nav a.deconnect {
 nav a.deconnect:hover {
     color: var(--julia-red-dark);
 }
+
+
+/* ----- PHOTO DE PROFIL ----- */
+.profile {
+  border: solid 1px #CCC;
+}

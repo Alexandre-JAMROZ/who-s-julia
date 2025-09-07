@@ -10,6 +10,6 @@
         </ul>
     </nav>
     <div class="profile">
-        <img src="https://via.placeholder.com/40" alt="Photo de profil">
+        <img src="/static/img/basic_profile_picture.png" alt="Photo de profil">
     </div>
 </div>
