@@ -1,49 +1,107 @@
 /**
  * Arbre des modules Julia avec D3.js
- * Génère un arbre interactif pour la sélection des niveaux
+ * Génère un arbre pour la sélection des niveaux
+ * Version mise à jour pour intégration avec le système d'exercices PHP
  */
 
-// Configuration des données des modules
+// Configuration des données des modules - Correspond à la base de données
 const treeData = {
   name: "Les Bases",
   description: "Découvrez les bases de Julia et commencez votre quête",
   level: 1,
   status: "available",
-  url: "/public/modules/bases/bases.html",
+  url: "exercice/exercice.php?module=1",
+  moduleId: 1,
   children: [
     {
-      name: "Nombres",
-      description: "Maîtrisez les nombres et les opérations de base",
+      name: "Fonctions et Calculs",
+      description: "Maîtrisez les fonctions et les opérations mathématiques",
       level: 2,
       status: "locked",
-      url: "/public/modules/nombres/nombres.html"
+      url: "exercice/exercice.php?module=2",
+      moduleId: 2,
+      children: [
+        {
+          name: "Conditions et Boucles",
+          description: "Contrôlez le flux de votre programme",
+          level: 4,
+          status: "locked",
+          url: "exercice/exercice.php?module=4",
+          moduleId: 4
+        }
+      ]
     },
     {
-      name: "Structures",
+      name: "Structures de Données",
       description: "Explorez les structures de données",
       level: 3,
       status: "locked",
-      url: null // À définir plus tard
+      url: "exercice/exercice.php?module=3",
+      moduleId: 3,
+      children: [
+        {
+          name: "Manipulation de Chaînes",
+          description: "Travaillez avec les chaînes de caractères",
+          level: 5,
+          status: "locked",
+          url: "exercice/exercice.php?module=5",
+          moduleId: 5
+        }
+      ]
     }
   ]
 };
 
+
 // Configuration de l'arbre
 const config = {
-  margin: { top: 50, right: 75, bottom: 50, left: 75 },
-  nodeWidth: 300,
-  nodeHeight: 80,
+  margin: { top: 50, right: 100, bottom: 50, left: 100 },
+  nodeWidth: 320,
+  nodeHeight: 70,
   animationDuration: 300,
   animationDelay: 50
 };
 
 /**
+ * Récupère le statut des modules depuis le serveur
+ */
+async function fetchModuleStatus() {
+  try {
+    const response = await fetch('get_module_status.php');
+    if (response.ok) {
+      const data = await response.json();
+      updateTreeStatus(treeData, data);
+    }
+  } catch (error) {
+    console.error('Erreur lors de la récupération du statut des modules:', error);
+  }
+}
+
+/**
+ * Met à jour le statut des modules dans l'arbre
+ */
+function updateTreeStatus(node, statusData) {
+  if (statusData[node.moduleId]) {
+    node.status = statusData[node.moduleId].completed ? 'completed' : 
+                  statusData[node.moduleId].started ? 'in-progress' : 
+                  statusData[node.moduleId].unlocked ? 'available' : 'locked';
+  }
+  
+  if (node.children) {
+    node.children.forEach(child => updateTreeStatus(child, statusData));
+  }
+}
+
+/**
  * Initialise l'arbre D3.js
  */
-function initializeTree() {
+async function initializeTree() {
+  // Récupération du statut des modules
+  await fetchModuleStatus();
+  
   // Calcul des dimensions
   const containerWidth = document.getElementById('tree-container').clientWidth;
-  const containerHeight = 350;
+  const containerHeight = 600; // augmenter si les modules dépassent
   const width = containerWidth - config.margin.left - config.margin.right;
   const height = containerHeight - config.margin.top - config.margin.bottom;
 
@@ -63,7 +121,7 @@ function initializeTree() {
   // Configuration de l'algorithme d'arbre
   const tree = d3.tree()
     .size([width, height])
-    .separation((a, b) => a.parent == b.parent ? 1 : 0.8);
+    .separation((a, b) => a.parent == b.parent ? 1.2 : 1.5);
 
   // Transformation des données en hiérarchie
   const root = d3.hierarchy(treeData);
@@ -111,6 +169,19 @@ function createGradients(svg) {
   accentGradient.append("stop")
     .attr("offset", "100%")
     .attr("stop-color", "#FF6B5F");
+  
+  // Gradient pour les modules complétés
+  const completedGradient = defs.append("linearGradient")
+    .attr("id", "gradient-completed")
+    .attr("gradientTransform", "rotate(135)");
+  
+  completedGradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#4CAF50");
+  
+  completedGradient.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#66BB6A");
 }
 
 /**
@@ -124,7 +195,10 @@ function createLinks(g, root) {
     .attr("class", "link")
     .attr("d", d3.linkVertical()
       .x(d => d.x)
-      .y(d => d.y));
+      .y(d => d.y))
+    .style("fill", "none")
+    .style("stroke", "#ccc")
+    .style("stroke-width", 2);
 }
 
 /**
@@ -135,9 +209,9 @@ function createNodes(g, root) {
     .data(root.descendants())
     .enter()
     .append("g")
-    .attr("class", d => `node level-${d.data.level}`)
+    .attr("class", d => `node level-${d.data.level} status-${d.data.status}`)
     .attr("transform", d => `translate(${d.x},${d.y})`)
-    .style("cursor", d => d.data.url ? "pointer" : "default")
+    .style("cursor", d => d.data.status !== 'locked' ? "pointer" : "not-allowed")
     .on("click", handleNodeClick);
 
   // Rectangles des nœuds
@@ -145,7 +219,13 @@ function createNodes(g, root) {
     .attr("width", config.nodeWidth)
     .attr("height", config.nodeHeight)
     .attr("x", -config.nodeWidth / 2)
-    .attr("y", -config.nodeHeight / 2);
+    .attr("y", -config.nodeHeight / 2)
+    .attr("fill", d => {
+      if (d.data.status === 'completed') return "url(#gradient-completed)";
+      if (d.data.status === 'in-progress') return "url(#gradient-accent)";
+      if (d.data.status === 'available') return "url(#gradient-primary)";
+      return "#ccc";
+    });
 
   // Titres des nœuds
   node.append("text")
@@ -161,6 +241,16 @@ function createNodes(g, root) {
 
   // Badges de statut
   createStatusBadges(node);
+  
+  // Icône de cadenas pour les modules verrouillés
+  node.filter(d => d.data.status === 'locked')
+    .append("text")
+    .attr("class", "lock-icon")
+    .attr("x", 0)
+    .attr("y", 35)
+    .attr("text-anchor", "middle")
+    .style("font-size", "20px")
+    .text("🔒");
 }
 
 /**
@@ -169,23 +259,41 @@ function createNodes(g, root) {
 function createStatusBadges(node) {
   // Cercles des badges
   node.append("circle")
-    .attr("class", d => `status-badge ${d.data.status === 'locked' ? 'locked' : ''}`)
+    .attr("class", d => `status-badge ${d.data.status}`)
     .attr("cx", config.nodeWidth / 2 - 12)
     .attr("cy", -config.nodeHeight / 2 + 8)
-    .attr("r", 12);
+    .attr("r", 12)
+    .attr("fill", d => {
+      if (d.data.status === 'completed') return "#4CAF50";
+      if (d.data.status === 'in-progress') return "#FF9800";
+      if (d.data.status === 'available') return "#3C79F5";
+      return "#9E9E9E";
+    });
 
-  // Texte des badges
+  // Icônes des badges
   node.append("text")
     .attr("class", "badge-text")
     .attr("x", config.nodeWidth / 2 - 12)
-    .attr("y", -config.nodeHeight / 2 + 8)
-    .text(d => d.data.level);
+    .attr("y", -config.nodeHeight / 2 + 12)
+    .attr("text-anchor", "middle")
+    .style("font-size", "16px")
+    .text(d => {
+      if (d.data.status === 'completed') return "✓";
+      if (d.data.status === 'in-progress') return "...";
+      return d.data.level;
+    });
 }
 
 /**
  * Gère les clics sur les nœuds
  */
 function handleNodeClick(event, d) {
+  // Si le module est verrouillé, afficher un message
+  if (d.data.status === 'locked') {
+    alert('Ce module sera débloqué après avoir complété les modules précédents.');
+    return;
+  }
+  
   // Si pas d'URL définie, ne rien faire
   if (!d.data.url) {
     return;
@@ -244,9 +352,9 @@ function animateEntrance(g) {
     .style("opacity", 1);
 }
 
-//Point d'entrée: Initialise l'arbre quand le DOM est prêt
+// Point d'entrée: Initialise l'arbre quand le DOM est prêt
 document.addEventListener('DOMContentLoaded', function() {
-  //délai pour s'assurer que les styles CSS sont chargés
+  // Délai pour s'assurer que les styles CSS sont chargés
   setTimeout(initializeTree, 100);
 });
 

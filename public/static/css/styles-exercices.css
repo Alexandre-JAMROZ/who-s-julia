@@ -1,0 +1,317 @@
+/* Styles simplifiés pour la page d'exercices */
+
+/* Layout principal */
+.exercice-container {
+    padding: 5px;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* En-tête */
+.exercice-header {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.exercice-header h1 {
+    color: #3C79F5;
+    margin: 0;
+    font-size: 24px;
+}
+
+.progress-info {
+    flex: 1;
+    max-width: 300px;
+}
+
+.progress-bar {
+    height: 18px;
+    background: #e0e0e0;
+    border-radius: 9px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #3C79F5, #5A8DF7);
+    transition: width 0.3s ease;
+}
+
+.exercise-selector select {
+    padding: 6px 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+}
+
+.exercise-selector select:hover {
+    border-color: #3C79F5;
+}
+
+/* Contenu principal - Disposition horizontale */
+.exercice-content {
+    display: flex;
+    gap: 15px;
+    height: calc(100vh - 50px);
+}
+
+.left-panel, .right-panel {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    flex: 1;
+}
+
+/* Sections d'exercice */
+.exercise-info h2 {
+    color: #333;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+}
+
+.enonce {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.example-section, .expected-output {
+    background: #e8f5e9;
+    padding: 12px;
+    border-radius: 4px;
+    border-left: 3px solid #4CAF50;
+    margin-bottom: 15px;
+}
+
+.example-section h3, .expected-output h3 {
+    margin: 0 0 8px 0;
+    color: #4CAF50;
+    font-size: 14px;
+}
+
+.example-section pre, .expected-output pre {
+    margin: 0;
+    padding: 8px;
+    background: white;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 13px;
+    overflow-x: auto;
+}
+
+/* Éditeur de code */
+.code-editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #272822;
+    color: white;
+    border-radius: 4px 4px 0 0;
+}
+
+.CodeMirror {
+    flex: 1;
+    min-height: 250px;
+    max-height: 400px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Boutons */
+.btn-primary, .btn-secondary, .btn-success {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #3C79F5;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2d5fc7;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+/* Section de sortie */
+.output-section h3 {
+    color: #333;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.output-display {
+    background: #1e1e1e;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 4px;
+    min-height: 150px;
+    font-family: monospace;
+    font-size: 13px;
+    overflow-x: auto;
+}
+
+.output-display pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.output-display .loading {
+    color: #ff9800;
+}
+
+.output-display .error {
+    color: #f44336;
+}
+
+.output-display .info {
+    color: #2196F3;
+}
+
+/* Messages de feedback */
+.feedback-section {
+    margin-top: 15px;
+}
+
+.success-message, .error-message {
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.success-message {
+    background: #4CAF50;
+    color: white;
+}
+
+.error-message {
+    background: #f44336;
+    color: white;
+}
+
+.success-message h3, .error-message h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.test-details {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    text-align: left;
+}
+
+.test-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.test-details li {
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.passed-test {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.failed-test {
+    background: rgba(244, 67, 54, 0.2);
+}
+
+.hint {
+    margin-top: 10px;
+    padding: 8px;
+    background: rgba(255, 193, 7, 0.2);
+    border-radius: 3px;
+    font-style: italic;
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .exercice-content {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .left-panel, .right-panel {
+        max-height: none;
+    }
+    
+    .CodeMirror {
+        min-height: 200px;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .exercice-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .progress-info {
+        max-width: 100%;
+    }
+}

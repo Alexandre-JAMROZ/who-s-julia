@@ -42,7 +42,16 @@ function login($lpseudo, $lpassword, &$msg) {
         $_SESSION['user'] = $lpseudo;
 
         $msg = "Connexion réussie !";
+        
+        // Gérer la redirection après connexion si nécessaire
+        if (isset($_SESSION['redirect_after_login'])) {
+            $redirect_url = $_SESSION['redirect_after_login'];
+            unset($_SESSION['redirect_after_login']);
+            header('Location: ' . $redirect_url);
+            exit();
+        }
+        
         return true;
     }
-
 }
+?>
