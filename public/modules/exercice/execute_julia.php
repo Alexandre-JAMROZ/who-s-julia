@@ -30,7 +30,7 @@ $code = $data['code'] ?? '';
 $action = $data['action'] ?? 'validate'; // 'validate' par défaut, peut être 'execute_only' si besoin
 
 // Configuration Julia - Exécution locale sur la machine
-$julia_path = 'C:\\Users\\Utilisateur\\AppData\\Local\\Programs\\Julia-1.11.6\\bin\\julia.exe';
+$julia_path = "../../static/julia-1.11.6/bin/julia.exe";
 
 /**
  * Fonction pour exécuter du code Julia localement
@@ -181,7 +181,6 @@ function validateWithTestCases($user_code, $test_cases, $julia_path, $type_exerc
         'has_error' => false
     ];
 }
-
 
 // Si c'est juste une exécution simple (pour tests futurs)
 if ($action === 'execute_only') {
