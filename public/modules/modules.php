@@ -11,6 +11,7 @@ require_once '../../config/db.php';
   <title>Sélection des Modules - Apprendre Julia</title>
   <link rel="stylesheet" href="../../static/css/styles.css">
   <link rel="stylesheet" href="../../static/css/modules-tree.css">
+  <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
 </head>
 <body>
   <header>

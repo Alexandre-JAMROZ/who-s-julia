@@ -215,3 +215,9 @@ form.compte-form > div.compte-form label {
 form.compte-form > div.compte-form input {
     padding: 0.5rem;
 }
+
+
+/* ----- PHOTO DE PROFIL ----- */
+.profile {
+  border: solid 1px #CCC;
+}

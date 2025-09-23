@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['pseudo'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Compte</title>
     <link rel="stylesheet" href="static/css/styles-compte.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
 </head>
 <body>
     <header>

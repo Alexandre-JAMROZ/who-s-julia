@@ -15,6 +15,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apprendre Julia</title>
   <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
 </head>
 <body>
   <header>
